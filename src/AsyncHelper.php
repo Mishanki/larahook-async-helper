@@ -4,13 +4,13 @@ namespace Larahook\AsyncHelper;
 
 
 use App\Core\Errors;
-use App\Exceptions\ApplicationException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Bootstrap\HandleExceptions;
 use Illuminate\Foundation\Bootstrap\LoadConfiguration;
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Illuminate\Foundation\Bootstrap\RegisterProviders;
 use Illuminate\Foundation\Bootstrap\SetRequestForConsole;
+use Larahook\AsyncHelper\Exceptions\AsyncHelperException;
 
 class AsyncHelper
 {
@@ -21,7 +21,7 @@ class AsyncHelper
     public static function call($function, array $args = []): void
     {
         if (!\function_exists('pcntl_fork')) {
-            throw new ApplicationException('Cannot fork process, pcnt_fork not available', Errors::PCNTL_ASYNC_ERROR->value);
+            throw new AsyncHelperException('Cannot fork process, pcnt_fork not available');
         }
         if (app()->runningUnitTests()) {
             \call_user_func_array($function, $args);
