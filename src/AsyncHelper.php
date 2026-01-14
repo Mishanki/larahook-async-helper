@@ -1,5 +1,7 @@
 <?php
 
+namespace Larahook\AsyncHelper;
+
 
 use App\Core\Errors;
 use App\Exceptions\ApplicationException;
