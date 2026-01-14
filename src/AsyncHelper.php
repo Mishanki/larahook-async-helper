@@ -23,7 +23,7 @@ class AsyncHelper
         if (!\function_exists('pcntl_fork')) {
             throw new ApplicationException('Cannot fork process, pcnt_fork not available', Errors::PCNTL_ASYNC_ERROR->value);
         }
-        if (\App\Helper\Pcntl\app()->runningUnitTests()) {
+        if (app()->runningUnitTests()) {
             \call_user_func_array($function, $args);
 
             return;
@@ -46,7 +46,7 @@ class AsyncHelper
      */
     private static function createLaravelAppInChild(): Application
     {
-        $app = require \App\Helper\Pcntl\base_path('bootstrap/app.php');
+        $app = require base_path('bootstrap/app.php');
         $app->make(Application::class)->bootstrapWith([
             LoadEnvironmentVariables::class,
             LoadConfiguration::class,
