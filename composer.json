@@ -1,0 +1,51 @@
+{
+  "name": "larahook/async-helper",
+  "type": "library",
+  "description": "Async call",
+  "keywords": [
+    "laravel",
+    "async",
+    "pcntl",
+    "fork"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mikhail Mishankin",
+      "email": "mishanki@yandex.ru"
+    }
+  ],
+  "homepage": "https://github.com/Mishanki/larahook-async-helper",
+  "support": {
+    "email": "mishanki@yandex.ru",
+    "issues": "https://github.com/Mishanki/larahook-async-helper/issues",
+    "source": "https://github.com/Mishanki/larahook-async-helper"
+  },
+  "require": {
+    "php": "^8.0",
+    "laravel/framework": "^10.0|^11.0|^12.0"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Larahook\\SanctumRefreshToken\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
